@@ -5,10 +5,12 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {WebsocketService} from "./services/websockets.service";
 import {CarStatusService} from "./services/car-status.service";
+import {CarWedgitComponent} from "./car-wedgit/car-wedgit.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CarWedgitComponent
   ],
   imports: [
     BrowserModule,
