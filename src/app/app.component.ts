@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import {CarStatusService} from "./car-status.service";
 
 @Component({
   selector: 'app-root',
@@ -7,15 +8,18 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'spa';
-  constructor(private http: HttpClient){
-    console.log("=> starting")
+  title = 'Car Dashboard';
+  constructor(private http: HttpClient, private carStatus: CarStatusService){
+    console.log("=====App starts======")
   }
 
   ngOnInit(){
-    console.log("=> sending request");
-    let obs = this.http.get("http://127.0.0.1:8080/api/v1/cars/owner/");
-    obs.subscribe(()=> console.log("=> got the response"));
+    this.carStatus.messages.subscribe(msg => {
+      // console.log("chat.messages.subscribe" + msg);
+    });
+    // console.log("=> sending request");
+    // let obs = this.http.get("http://127.0.0.1:8080/api/v1/cars/owner/");
+    // obs.subscribe(()=> console.log("=> got the response"));
   }
 }
 
