@@ -3,8 +3,8 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
-import {WebsocketService} from "./websockets.service";
-import {CarStatusService} from "./car-status.service";
+import {WebsocketService} from "./services/websockets.service";
+import {CarStatusService} from "./services/car-status.service";
 
 @NgModule({
   declarations: [
