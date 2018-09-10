@@ -1,7 +1,15 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #e2e1e0;
+  text-align: center;
+}
 
 .mat-toolbar {
   margin-bottom: 10px;

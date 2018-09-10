@@ -13,7 +13,7 @@ import {Subscription} from "rxjs";
 export class CarWidgetComponent implements OnInit {
 
   @Input() vid: string;
-  @Input() color: string;
+  @Input() status: string;
   WebSocketMessages: Subject<any>;
   subscription: Subscription;
 
@@ -23,12 +23,11 @@ export class CarWidgetComponent implements OnInit {
   }
 
   changeState = function (state) {
-    console.log('about to change stuaus to ' + state);
     if (state == false) {
-      this.color = "warn";
+      this.status = "inactive";
       return;
     }
-    this.color = "primary";
+    this.status = "active";
     this.subscription = Observable.interval(5000).take(1).subscribe(() => this.changeState(false));
   };
 
