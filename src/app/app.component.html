@@ -1,9 +1,30 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
+<mat-toolbar color="primary">
+
+
+  <button mat-button routerLink="/">
+    <mat-icon>directions_car</mat-icon>
+    <h1>
+    {{title}}
+    </h1>
+  </button>
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button mat-button >Products</button>
+    <button mat-button >Dashboard</button>
+  </div>
+  <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+    <mat-icon>menu</mat-icon>
+    Filter By Owner
+  </button>
+
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+  <button mat-menu-item>Products</button>
+  <button mat-menu-item>Dashboard</button>
+  <button mat-menu-item>Help</button>
+</mat-menu>
+
 
 <app-car-widget vid="YS2R4X200053994333"></app-car-widget>
 

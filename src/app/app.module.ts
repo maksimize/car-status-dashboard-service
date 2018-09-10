@@ -7,7 +7,7 @@ import {WebsocketService} from "./services/websockets.service";
 import {CarStatusService} from "./services/car-status.service";
 import {CarWidgetComponent} from "./car-widget/car-widget.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from "@angular/material";
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatMenuModule} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -19,7 +19,10 @@ import {MatButtonModule, MatCheckboxModule} from "@angular/material";
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [
     CarStatusService,
