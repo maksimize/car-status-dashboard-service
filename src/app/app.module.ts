@@ -8,11 +8,13 @@ import {CarStatusService} from "./services/car-status.service";
 import {CarWidgetComponent} from "./car-widget/car-widget.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatMenuModule} from "@angular/material";
+import { OwnerWidgetComponent } from './owner-widget/owner-widget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarWidgetComponent
+    CarWidgetComponent,
+    OwnerWidgetComponent
   ],
   imports: [
     BrowserModule,

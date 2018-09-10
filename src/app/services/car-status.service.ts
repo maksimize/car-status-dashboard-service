@@ -12,6 +12,7 @@ export class CarStatusService {
     this.messages = <Subject<any>>wsService
       .connect()
       .map((response: any): any => {
+        console.log(response);
         return response;
       })
   }
