@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CarWedgitComponent } from './car-wedgit.component';
+import { CarWidgetComponent } from './car-widget.component';
 
-describe('CarWedgitComponent', () => {
-  let component: CarWedgitComponent;
-  let fixture: ComponentFixture<CarWedgitComponent>;
+describe('CarWidgetComponent', () => {
+  let component: CarWidgetComponent;
+  let fixture: ComponentFixture<CarWidgetComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CarWedgitComponent ]
+      declarations: [ CarWidgetComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CarWedgitComponent);
+    fixture = TestBed.createComponent(CarWidgetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

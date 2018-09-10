@@ -5,16 +5,21 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {WebsocketService} from "./services/websockets.service";
 import {CarStatusService} from "./services/car-status.service";
-import {CarWedgitComponent} from "./car-wedgit/car-wedgit.component";
+import {CarWidgetComponent} from "./car-widget/car-widget.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from "@angular/material";
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarWedgitComponent
+    CarWidgetComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule
   ],
   providers: [
     CarStatusService,
