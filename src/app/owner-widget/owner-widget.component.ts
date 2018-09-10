@@ -8,6 +8,8 @@ import {Component, OnInit, Input} from '@angular/core';
 export class OwnerWidgetComponent implements OnInit {
 
   @Input() name: string;
+  @Input() address: string;
+  @Input() cars: object;
 
   constructor() { }
 

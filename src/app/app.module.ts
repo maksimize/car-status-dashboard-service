@@ -9,12 +9,14 @@ import {CarWidgetComponent} from "./car-widget/car-widget.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatToolbarModule, MatIconModule, MatMenuModule} from "@angular/material";
 import { OwnerWidgetComponent } from './owner-widget/owner-widget.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarWidgetComponent,
-    OwnerWidgetComponent
+    OwnerWidgetComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

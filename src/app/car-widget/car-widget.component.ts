@@ -13,6 +13,7 @@ import {Subscription} from "rxjs";
 export class CarWidgetComponent implements OnInit {
 
   @Input() vid: string;
+  @Input() regNo: string;
   @Input() status: string;
   WebSocketMessages: Subject<any>;
   subscription: Subscription;

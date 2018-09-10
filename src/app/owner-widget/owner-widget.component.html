@@ -2,8 +2,13 @@
   <h3>
     {{name}}
   </h3>
-  <p>
-    <app-car-widget vid="YS2R4X200053994333" status="inactive"></app-car-widget>
-    <app-car-widget vid="YS2R4X200053994444" status="inactive"></app-car-widget>
-  </p>
+  <p>{{address}}</p>
+  <span *ngFor="let carArray of cars">
+    <span *ngFor="let car of carArray">
+          <app-car-widget
+            vid="{{ car.vehicleId }}"
+            regNo="{{car.registrationNumber}}"
+            status="inactive"></app-car-widget>
+    </span>
+  </span>
 </div>

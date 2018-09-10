@@ -1,0 +1,6 @@
+<span *ngFor="let owner of owners">
+  <app-owner-widget
+    name="{{ owner.name }}"
+    address="{{ owner.address }}"
+    [cars]="[ owner.cars ]"></app-owner-widget>
+</span>
