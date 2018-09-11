@@ -1,6 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {StatusToggleService} from "../services/status-toggle.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -10,9 +9,8 @@ import {StatusToggleService} from "../services/status-toggle.service";
 export class DashboardComponent implements OnInit {
 
   owners: Object;
-  _toggleState: string = 'all';
 
-  constructor(private http: HttpClient, private statusToggle: StatusToggleService) {
+  constructor(private http: HttpClient) {
 
   }
 
@@ -27,13 +25,6 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  toggle(){
-    if (this._toggleState == 'all') {
-      this._toggleState = 'inactive_only';
-    } else {
-      this._toggleState = 'all';
-    }
-    this.statusToggle.toggle(this._toggleState);
-  }
+
 
 }

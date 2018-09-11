@@ -11,13 +11,15 @@ import {MatButtonModule, MatToolbarModule, MatIconModule, MatMenuModule} from "@
 import { OwnerWidgetComponent } from './owner-widget/owner-widget.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {StatusToggleService} from "./services/status-toggle.service";
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarWidgetComponent,
     OwnerWidgetComponent,
-    DashboardComponent
+    DashboardComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
