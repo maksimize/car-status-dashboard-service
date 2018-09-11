@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatToolbarModule, MatIconModule, MatMenuModule} from "@angular/material";
 import { OwnerWidgetComponent } from './owner-widget/owner-widget.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {StatusToggleService} from "./services/status-toggle.service";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   providers: [
     CarStatusService,
-    WebsocketService
+    WebsocketService,
+    StatusToggleService
   ],
   bootstrap: [AppComponent]
 })
