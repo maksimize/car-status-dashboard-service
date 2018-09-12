@@ -7,16 +7,14 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class WebsocketService {
 
-  // Our socket connection
   private socket;
 
   constructor() { }
 
   connect(): Rx.Subject<MessageEvent> {
-    this.socket = io("127.0.0.1:8100");
+    this.socket = io(environment.CarStatusAPIEndpoint);
     let observable = new Observable(observer => {
       this.socket.on('message', (data) => {
-        console.log('=> ssssssss');
         observer.next(data);
       });
       return () => {
