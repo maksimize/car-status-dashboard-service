@@ -1,0 +1,11 @@
+---
+# provisioning-production.yml
+
+- name: deployment | frontend applications
+  hosts: "localhost"
+  gather_facts: "false"
+  tasks:
+    - name: basic upload
+      s3_sync:
+        bucket: car-status-dashboard-service
+        file_root: ../dist/car-status-dashboard-service/
