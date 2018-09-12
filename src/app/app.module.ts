@@ -12,6 +12,7 @@ import { OwnerWidgetComponent } from './owner-widget/owner-widget.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {StatusToggleService} from "./services/status-toggle.service";
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    AppRoutingModule
   ],
   providers: [
     CarStatusService,
