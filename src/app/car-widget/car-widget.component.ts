@@ -19,22 +19,13 @@ export class CarWidgetComponent implements OnInit {
   WebSocketMessages: Subject<any>;
   subscription: Subscription;
 
-  showIfActive: boolean = true;
+  showIfActive: boolean;
   isVisible: boolean = true;
 
   constructor(private wsService: WebsocketService, private statusToggle: StatusToggleService) {
     this.subscription = Observable.interval(5000).take(1).subscribe();
-
+    this.setShowIfActive(statusToggle.getToggleState());
   }
-
-  changeState = function (state) {
-    if (state == false) {
-      this.carState = "inactive";
-      return;
-    }
-    this.carState = "active";
-    this.subscription = Observable.interval(5000).take(1).subscribe(() => this.changeState(false));
-  };
 
   ngOnInit() {
     this.WebSocketMessages = <Subject<any>>this.wsService
@@ -42,22 +33,35 @@ export class CarWidgetComponent implements OnInit {
       .map((response: any): any => {
         if (this.vid == response) {
           this.subscription.unsubscribe();
-          this.changeState(true);
-          this.toggleVisibility();
+          this.changeCarState(true);
         }
       });
     this.WebSocketMessages.subscribe();
 
     this.statusToggle.toggleSubject.subscribe(state => {
-        if (state == "all") {
-          this.showIfActive = true;
-        } else {
-          this.showIfActive = false;
-        }
-        this.toggleVisibility();
+        this.setShowIfActive(state);
       }
     );
   }
+
+  setShowIfActive(state){
+    if (state == "all") {
+      this.showIfActive = true;
+    } else {
+      this.showIfActive = false;
+    }
+    this.toggleVisibility();
+  }
+
+  changeCarState = function (state) {
+    if (state == false) {
+      this.carState = "inactive";
+    } else {
+      this.carState = "active";
+      this.subscription = Observable.interval(5000).take(1).subscribe(() => this.changeCarState(false));
+    }
+    this.toggleVisibility();
+  };
 
   toggleVisibility(){
     if (this.carState == "active" && this.showIfActive == false){

@@ -6,9 +6,11 @@
         <input type="checkbox" (change)='toggle()' id="id-name--1" name="set-name" class="switch-input">
         <label for="id-name--1" class="switch-label">Inactive only</label>
       </div>
-      <div class="control"><a href="">Owner 1</a></div>
-      <div class="control"><a href="">Owner 2</a></div>
-      <div class="control"><a href="">Owner 3</a></div>
+
+      <div class="control"><a routerLink="/dashboard">All</a></div>
+      <div class="control" *ngFor="let owner of owners">
+        <a routerLink="/dashboard/{{ owner.id }}">{{ owner.name }}</a>
+      </div>
     </div>
   </div>
 </header>

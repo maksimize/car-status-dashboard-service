@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
 
@@ -16,21 +16,23 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id') || "";
-    let obs = this.http.get("http://127.0.0.1:8300/api/v1/cars/owner/" + id);
-    obs.subscribe(
-      data => {
-        let owners;
-        if(id != ""){
-          owners = [data];
-        } else {
-          owners = data
+    this.route.params.subscribe(val => {
+      const id = val.id || "";
+      let obs = this.http.get("http://127.0.0.1:8300/api/v1/cars/owner/" + id);
+      obs.subscribe(
+        data => {
+          let owners;
+          if (id != "") {
+            owners = [data];
+          } else {
+            owners = data
+          }
+          this.owners = owners;
         }
-        this.owners = owners;
-      }
-    );
-  }
+      );
+    });
 
+  }
 
 
 }
