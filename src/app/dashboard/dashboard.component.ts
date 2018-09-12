@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +19,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(val => {
       const id = val.id || "";
-      let obs = this.http.get("http://127.0.0.1:8300/api/v1/cars/owner/" + id);
+      let obs = this.http.get(environment.CarDetailsAPIEndpoint + "/api/v1/cars/owner/" + id);
       obs.subscribe(
         data => {
           let owners;

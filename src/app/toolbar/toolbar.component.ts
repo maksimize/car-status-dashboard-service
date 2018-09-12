@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StatusToggleService} from "../services/status-toggle.service";
 import {HttpClient} from "@angular/common/http";
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-toolbar',
@@ -11,10 +12,11 @@ export class ToolbarComponent implements OnInit {
   owners: Object;
   _toggleState: string = 'all';
 
-  constructor(private statusToggle: StatusToggleService, private http: HttpClient) { }
+  constructor(private statusToggle: StatusToggleService, private http: HttpClient) {
+  }
 
   ngOnInit() {
-    let obs = this.http.get("http://127.0.0.1:8300/api/v1/cars/owner/");
+    let obs = this.http.get(environment.CarDetailsAPIEndpoint + "/api/v1/cars/owner/");
     obs.subscribe(
       data => {
         this.owners = data;
@@ -22,7 +24,7 @@ export class ToolbarComponent implements OnInit {
     );
   }
 
-  toggle(){
+  toggle() {
     if (this._toggleState == 'all') {
       this._toggleState = 'inactive_only';
     } else {
